@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Al-Fayez · Growth Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --g: #1D9E75;
+  --g-dark: #0F6E56;
+  --g-mid: #5DCAA5;
+  --g-light: #E1F5EE;
+  --text: #111110;
+  --muted: #6b6b68;
+  --faint: #999994;
+  --bg: #fafaf8;
+  --white: #ffffff;
+  --border: rgba(0,0,0,0.08);
+  --border-mid: rgba(0,0,0,0.12);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250,250,248,0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5vw;
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-logo span { color: var(--g); }
+
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white) !important;
+  background: var(--text);
+  padding: 8px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.nav-cta:hover { background: var(--g) !important; transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 100px 5vw 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+.hero-inner {
+  max-width: 1100px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  position: relative; z-index: 1;
+}
+
+.hero-left {}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 500;
+  background: var(--g-light); color: var(--g-dark);
+  padding: 6px 14px; border-radius: 50px;
+  margin-bottom: 28px;
+}
+
+.hero-badge-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--g);
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(42px, 5.5vw, 72px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--g);
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 460px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 500;
+  background: var(--text); color: var(--white);
+  padding: 13px 24px; border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover { background: var(--g); transform: translateY(-2px); }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.btn-secondary:hover { color: var(--text); }
+.btn-secondary svg { transition: transform 0.2s; }
+.btn-secondary:hover svg { transform: translateX(3px); }
+
+.hero-right {
+  display: flex; flex-direction: column; gap: 12px;
+}
+
+.hero-stat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex; align-items: center; gap: 16px;
+}
+
+.hero-stat-card:first-child { transform: translateX(30px); }
+.hero-stat-card:nth-child(2) { transform: translateX(-10px); }
+.hero-stat-card:nth-child(3) { transform: translateX(20px); }
+
+.stat-ico {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: var(--g-light);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: var(--g-dark);
+}
+
+.stat-n {
+  font-family: 'Instrument Serif', serif;
+  font-size: 32px; color: var(--text);
+  line-height: 1; margin-bottom: 2px;
+}
+
+.stat-l { font-size: 12px; color: var(--muted); }
+
+/* SECTIONS */
+section {
+  padding: 100px 5vw;
+}
+
+.section-inner {
+  max-width: 1100px; margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--g); margin-bottom: 12px;
+}
+
+h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(30px, 3.5vw, 48px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 15px; color: var(--muted); font-weight: 300;
+  max-width: 520px; line-height: 1.75;
+  margin-bottom: 56px;
+}
+
+/* ABOUT */
+.about-grid {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start;
+}
+
+.about-body {
+  font-size: 16px; color: var(--muted); line-height: 1.8; font-weight: 300;
+  margin-bottom: 32px;
+}
+
+.about-body strong { color: var(--text); font-weight: 500; }
+
+.cert-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.cert-tag {
+  font-size: 12px; font-weight: 500;
+  background: var(--white); border: 1px solid var(--border-mid);
+  border-radius: 50px; padding: 6px 14px; color: var(--muted);
+}
+
+.about-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+
+.about-stat {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px;
+}
+
+.about-stat-n {
+  font-family: 'Instrument Serif', serif;
+  font-size: 44px; color: var(--text); line-height: 1;
+  margin-bottom: 6px;
+}
+
+.about-stat-n span { color: var(--g); }
+.about-stat-l { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+/* EXPERIENCE */
+.exp-section { background: var(--white); }
+
+.exp-timeline { display: flex; flex-direction: column; gap: 2px; }
+
+.exp-item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.exp-item:hover { border-color: var(--border-mid); }
+
+.exp-header {
+  padding: 28px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  cursor: pointer;
+}
+
+.exp-header-left { display: flex; align-items: center; gap: 18px; }
+
+.exp-logo {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; font-family: 'DM Sans', sans-serif;
+  flex-shrink: 0;
+}
+
+.logo-arb { background: var(--g-light); color: var(--g-dark); }
+.logo-n1  { background: #E6F1FB; color: #185FA5; }
+
+.exp-title-block {}
+.exp-role { font-size: 16px; font-weight: 500; margin-bottom: 3px; }
+.exp-co   { font-size: 13px; color: var(--muted); }
+
+.exp-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+
+.exp-period {
+  font-size: 12px; color: var(--muted);
+  background: var(--bg); border: 1px solid var(--border);
+  padding: 5px 12px; border-radius: 50px;
+}
+
+.exp-toggle {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--bg); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: background 0.2s, transform 0.3s;
+  color: var(--muted);
+}
+
+.exp-item.open .exp-toggle { background: var(--g-light); color: var(--g-dark); transform: rotate(45deg); }
+
+.exp-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+.exp-body-inner {
+  padding: 0 32px 28px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.exp-bullets { list-style: none; margin-bottom: 24px; }
+
+.exp-bullets li {
+  font-size: 14px; color: var(--muted); line-height: 1.65;
+  padding: 4px 0 4px 18px; position: relative;
+}
+
+.exp-bullets li::before {
+  content: ''; position: absolute; left: 0; top: 13px;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--g); opacity: 0.5;
+}
+
+.camps-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--faint); margin-bottom: 10px;
+}
+
+.camps { display: flex; flex-wrap: wrap; gap: 7px; }
+
+.camp {
+  font-size: 12px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 5px 11px; display: flex; align-items: center; gap: 6px;
+  color: var(--text);
+}
+
+.dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.dg { background: var(--g); }
+.db { background: #378ADD; }
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.skill-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.skill-card:hover { border-color: var(--g-mid); transform: translateY(-3px); }
+
+.skill-ico {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--g-light); color: var(--g-dark);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+
+.skill-name { font-size: 14px; font-weight: 500; margin-bottom: 5px; }
+.skill-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+/* EDUCATION & CERTS */
+.edu-certs-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+}
+
+.edu-cards { display: flex; flex-direction: column; gap: 12px; }
+
+.edu-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 16px; padding: 22px 24px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+
+.edu-ico {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--g-light); color: var(--g-dark);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.edu-degree { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+.edu-school { font-size: 12px; color: var(--muted); margin-bottom: 6px; line-height: 1.4; }
+.edu-detail { font-size: 11px; color: var(--g-dark); font-weight: 500; }
+
+.cert-cards { display: flex; flex-direction: column; gap: 10px; }
+
+.cert-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 18px;
+  display: flex; align-items: center; gap: 12px;
+  font-size: 13px; font-weight: 500; color: var(--text);
+}
+
+.cert-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--g-light); color: var(--g-dark);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* CONTACT */
+.contact-section { background: var(--text); }
+
+.contact-section h2 { color: var(--white); }
+.contact-section .section-label { color: var(--g-mid); }
+.contact-section .section-desc { color: rgba(255,255,255,0.5); }
+
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+
+.contact-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; padding: 22px 24px;
+  display: flex; align-items: center; gap: 16px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.contact-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.contact-card-ico {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: rgba(29,158,117,0.2); color: var(--g-mid);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-card-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 3px; }
+.contact-card-val { font-size: 14px; font-weight: 500; color: var(--white); }
+
+/* FOOTER */
+footer {
+  background: var(--text); border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 5vw; text-align: center;
+}
+
+footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+/* DIVIDER */
+.divider { height: 1px; background: var(--border); max-width: 1100px; margin: 0 auto; }
+
+/* ANIMATIONS */
+.fade-up {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero-right { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .edu-certs-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .exp-header { padding: 20px; }
+  .exp-body-inner { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">M. <span>Al-Fayez</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Available for freelance projects
+      </div>
+      <h1>Growth<br>Marketing<br><em>Specialist</em></h1>
+      <p class="hero-sub">7+ years driving digital campaigns across banking, e-commerce, and logistics in Saudi Arabia. Currently at Al Rajhi Bank.</p>
+      <div class="hero-actions">
+        <a href="#experience" class="btn-primary">
+          View my work
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn-secondary">
+          Get in touch
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat-card">
+        <div class="stat-ico">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div>
+          <div class="stat-n">7+</div>
+          <div class="stat-l">Years of experience</div>
+        </div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-ico">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div>
+          <div class="stat-n">25+</div>
+          <div class="stat-l">Major campaigns led</div>
+        </div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-ico">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <div>
+          <div class="stat-n">5</div>
+          <div class="stat-l">Professional certifications</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid fade-up">
+      <div>
+        <div class="section-label">About</div>
+        <h2>Data-driven marketer with a regional edge</h2>
+        <p class="about-body">
+          Growth Marketing leader with <strong>7+ years of experience</strong> across banking, e-commerce, and logistics in Saudi Arabia. Currently driving strategic campaigns and performance marketing at <strong>Al Rajhi Bank</strong>, with a proven track record in media planning, budget management, affiliate programs, and cross-platform optimization.
+          <br><br>
+          Data-driven, KPI-focused, and certified across Google Ads, CMMP®, and CDMP. I combine deep regional market knowledge with rigorous performance thinking to build campaigns that convert.
+        </p>
+        <div class="cert-tags">
+          <span class="cert-tag">CMMP®</span>
+          <span class="cert-tag">CDMP</span>
+          <span class="cert-tag">Google Ads Search</span>
+          <span class="cert-tag">Google Ads Display</span>
+          <span class="cert-tag">Apple Search Ads</span>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="about-stat-n">7<span>+</span></div>
+          <div class="about-stat-l">Years of experience</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-n">25<span>+</span></div>
+          <div class="about-stat-l">Major campaigns</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-n">3</div>
+          <div class="about-stat-l">Industries covered</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-n">5</div>
+          <div class="about-stat-l">Certifications earned</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="exp-section">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label">Experience</div>
+      <h2>Where I've worked</h2>
+      <p class="section-desc">From Saudi Arabia's largest bank to one of its top e-commerce platforms — a track record across high-growth environments.</p>
+    </div>
+
+    <div class="exp-timeline fade-up">
+
+      <!-- Al Rajhi -->
+      <div class="exp-item open" id="exp1">
+        <div class="exp-header" onclick="toggleExp('exp1')">
+          <div class="exp-header-left">
+            <div class="exp-logo logo-arb">ARB</div>
+            <div class="exp-title-block">
+              <div class="exp-role">Assistant Manager, Growth Marketing</div>
+              <div class="exp-co">Al Rajhi Bank</div>
+            </div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-period">Jun 2024 – Present</span>
+            <div class="exp-toggle">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="exp-body" id="exp1-body">
+          <div class="exp-body-inner">
+            <ul class="exp-bullets">
+              <li>Develop and execute comprehensive media plans for major banking campaigns to drive customer acquisition.</li>
+              <li>Launch and manage performance-driven paid advertising across diverse live platforms.</li>
+              <li>Oversee subsidiary campaign launches, aligning marketing strategies and execution across business units.</li>
+              <li>Maintain and optimize core KPIs across all active campaigns to ensure maximum performance.</li>
+              <li>Produce detailed growth reports on a weekly and monthly basis to track trends and delivery metrics.</li>
+            </ul>
+            <div class="camps-label">Key Campaigns</div>
+            <div class="camps">
+              <span class="camp"><span class="dot dg"></span>Summer Campaign</span>
+              <span class="camp"><span class="dot dg"></span>AlRajhi Global</span>
+              <span class="camp"><span class="dot dg"></span>Lite Card Launch</span>
+              <span class="camp"><span class="dot dg"></span>Tasaheal Program</span>
+              <span class="camp"><span class="dot dg"></span>Travel Plus Card</span>
+              <span class="camp"><span class="dot dg"></span>Short-term Financing &amp; Credit Cards</span>
+              <span class="camp"><span class="dot dg"></span>Millionaire Campaign</span>
+              <span class="camp"><span class="dot dg"></span>E-Commerce Campaign</span>
+              <span class="camp"><span class="dot dg"></span>Home Renovation Campaign</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NiceOne -->
+      <div class="exp-item" id="exp2">
+        <div class="exp-header" onclick="toggleExp('exp2')">
+          <div class="exp-header-left">
+            <div class="exp-logo logo-n1">N1</div>
+            <div class="exp-title-block">
+              <div class="exp-role">Digital Marketing Specialist → Senior Specialist</div>
+              <div class="exp-co">NiceOne</div>
+            </div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-period">Aug 2020 – May 2024</span>
+            <div class="exp-toggle">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="exp-body" id="exp2-body">
+          <div class="exp-body-inner">
+            <ul class="exp-bullets">
+              <li>Launched and optimized high-impact Social and SEM paid campaigns to increase platform traffic and conversions.</li>
+              <li>Formulated tactical digital strategies and platform-specific action plans across all digital touchpoints.</li>
+              <li>Directed financial planning, managing yearly and monthly digital marketing budget allocations.</li>
+              <li>Planned, structured, and supervised the corporate Affiliate Program to diversify acquisition channels.</li>
+              <li>Supervised targeted content creation workflows designed for digital platform engagement.</li>
+              <li>Managed brand subsidiary media campaigns, tracking core conversion analytics and growth trends.</li>
+            </ul>
+            <div class="camps-label">Key Campaigns</div>
+            <div class="camps">
+              <span class="camp"><span class="dot db"></span>Ramadan Season</span>
+              <span class="camp"><span class="dot db"></span>Black Friday</span>
+              <span class="camp"><span class="dot db"></span>End-of-Year Sale</span>
+              <span class="camp"><span class="dot db"></span>Founding Day Campaign</span>
+              <span class="camp"><span class="dot db"></span>Saudi National Day</span>
+              <span class="camp"><span class="dot db"></span>Back to School</span>
+              <span class="camp"><span class="dot db"></span>Affiliate Programs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label">Skills</div>
+      <h2>What I bring to the table</h2>
+      <p class="section-desc">A full-stack digital marketing toolkit built across real campaigns in competitive markets.</p>
+    </div>
+    <div class="skills-grid fade-up">
+      <div class="skill-card">
+        <div class="skill-ico"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+        <div class="skill-name">Campaign Strategy</div>
+        <div class="skill-desc">Seasonal, product launch, and brand awareness campaigns</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-ico"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="skill-name">Media Planning</div>
+        <div class="skill-desc">Budget allocation, channel mix, and media buying</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-ico"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="skill-name">Performance Marketing</div>
+        <div class="skill-desc">SEM, paid social, channel optimization &amp; KPI management</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-ico"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="skill-name">Affiliate Marketing</div>
+        <div class="skill-desc">Partner programs, commission structures &amp; tracking</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-ico"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div class="skill-name">Analytics &amp; Reporting</div>
+        <div class="skill-desc">Performance tracking, metric analysis, KPI dashboards</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-ico"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+        <div class="skill-name">Fintech / Banking</div>
+        <div class="skill-desc">Compliant financial marketing for regulated products</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION & CERTS -->
+<section id="education">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label">Education &amp; Certifications</div>
+      <h2>Credentials</h2>
+    </div>
+    <div class="edu-certs-grid fade-up">
+      <div>
+        <p style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:14px;">Education</p>
+        <div class="edu-cards">
+          <div class="edu-card">
+            <div class="edu-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <div>
+              <div class="edu-degree">Bachelor of Public Relations</div>
+              <div class="edu-school">Imam Mohammed ibn Saud Islamic University · College of Media &amp; Communication</div>
+              <div class="edu-detail">GPA 4.56 / 5.00 · Second Class Honors · 2015–2020</div>
+            </div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+            <div>
+              <div class="edu-degree">Digital Marketing Nanodegree</div>
+              <div class="edu-school">Udacity · 2020</div>
+              <div class="edu-detail">SEO/SEM, Social Ads, Email Marketing, Web Analytics</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:14px;">Certifications</p>
+        <div class="cert-cards">
+          <div class="cert-card"><div class="cert-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>CMMP® Manager</div>
+          <div class="cert-card"><div class="cert-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>CDMP – Digital Marketing Institute</div>
+          <div class="cert-card"><div class="cert-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>Apple Search Ads Certification</div>
+          <div class="cert-card"><div class="cert-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>Google Ads Display Certification</div>
+          <div class="cert-card"><div class="cert-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>Google Ads Search Certification</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label">Contact</div>
+      <h2>Let's work together</h2>
+      <p class="section-desc">Have a project in mind? I'm open to freelance engagements across campaign strategy, media planning, and performance marketing.</p>
+    </div>
+    <div class="contact-grid fade-up">
+      <a href="tel:+966537300005" class="contact-card">
+        <div class="contact-card-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div>
+          <div class="contact-card-label">Phone / WhatsApp</div>
+          <div class="contact-card-val">+966 537 300 005</div>
+        </div>
+      </a>
+      <a href="mailto:mohfayez224@gmail.com" class="contact-card">
+        <div class="contact-card-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div>
+          <div class="contact-card-label">Email</div>
+          <div class="contact-card-val">mohfayez224@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/mohammed-alfayez/" target="_blank" class="contact-card">
+        <div class="contact-card-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <div>
+          <div class="contact-card-label">LinkedIn</div>
+          <div class="contact-card-val">mohammed-alfayez</div>
+        </div>
+      </a>
+      <div class="contact-card" style="cursor:default;">
+        <div class="contact-card-ico"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <div class="contact-card-label">Location</div>
+          <div class="contact-card-val">Riyadh, Saudi Arabia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Mohammed Al-Fayez · Growth Marketing Specialist · Riyadh, Saudi Arabia</p>
+</footer>
+
+<script>
+  // Accordion
+  function toggleExp(id) {
+    const item = document.getElementById(id);
+    const body = document.getElementById(id + '-body');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.exp-item').forEach(i => {
+      i.classList.remove('open');
+      const b = document.getElementById(i.id + '-body');
+      if (b) b.style.maxHeight = '0px';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  }
+
+  // Init open item
+  const openBody = document.getElementById('exp1-body');
+  if (openBody) openBody.style.maxHeight = openBody.scrollHeight + 'px';
+
+  // Scroll animations
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
+    });
+  });
+</script>
+</body>
+</html>
